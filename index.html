@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google fusion table to Datatables</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <p>Select data source: 
+    
+        <select id="selecter">
+            <option value="16XfG6F8Xut4_iRy-BoQX1eGGhENmWptmAarE5nU">Tallest buildings</option>
+            <option value="1No1xirmHhmV99FdzCBC32AWAmwZaLuEZ2qAxhUA">Rich people and their ‘green’ investments</option>
+            <option value="1HGvb0bozuXsb3gjKctux8_Jbh4s4pvoHcGOKaKk">List of infectious diseases</option>
+        </select>
+    </p>
+
+    <table class="table datatable" cell-spacing="0" width="100%">
+        
+    </table>
+    
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="app.js"></script>
+    <script>
+        $(function(){
+
+            var select = $('#selecter'),
+                table = $('.datatable');
+
+            _app.init({
+                el: table,
+                dataSource: select.val()
+            })
+
+            $('#selecter').change(function(e){
+
+                var dt = table.data('datatable')
+                    
+                /* Destroy datatable */
+                
+                dt.destroy();
+
+                /* Empty table */
+
+                table.empty();
+
+                /* Initialize */
+
+                _app.init({
+                    el: $('.datatable'),
+                    dataSource: this.value
+                })
+            })
+        })
+    </script>
+</body>
+</html>
