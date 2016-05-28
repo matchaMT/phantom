@@ -7,7 +7,7 @@
 
         defaults: {
             url          : 'https://www.googleapis.com/fusiontables/v1/query?sql=',
-            key          : 'AIzaSyBt51Kephzt5i8vo9vmZY1rCbzj-_mhNyY',
+            key          : 'AIzaSyDP0RJRSEEKAqtvxqlnP_-RomTcNNHL47A',
             mobileColumn : 'Name',
             klass        : 'min-tablet-l'
         },
